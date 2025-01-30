@@ -25,6 +25,11 @@ let Card: React.FC<CARDPROPS> = ({data})  =>{
                         <div className='content'>
                             <a className='title' onClick={() => openTheArticle(article.url)}>{article.title}</a>
                             <p>{article.description}</p>
+                            <div className='articleDetails'>
+                                <span>Author : {article.author}</span>
+                                <span>Source : {article.source.name}</span>
+                                <span>Published On : {new Date(article.publishedAt).toLocaleDateString('en-GB')}</span>
+                            </div>
                             <button onClick={() => openTheArticle(article.url)}>Read More</button>
                         </div>
                     </div>

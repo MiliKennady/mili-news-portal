@@ -9,11 +9,12 @@ function Newsapp() {
     const [search, setSearch] = useState("india");
     const [source, setSource] = useState("");
     const [author, setAuthor] = useState("");
-    const [date, SetDate] = useState(new Date().toISOString());
+    const [date, setDate] = useState("");
     const [newsData, setNewsData] = useState("");
     const [expand, setExpand] = useState(false);
 
-    const API_KEY = "79fec32e63ec4b609f36851aa2c517cc";
+    // const API_KEY = "79fec32e63ec4b609f36851aa2c517cc";
+    const API_KEY = "fd3d4ba1c73549418e3f3db2c5fc98a0";
 
     const getData = async () => {
         
@@ -55,8 +56,9 @@ function Newsapp() {
 
     const handleDateInput = (event:any) => {
         const dateString = event.target.value
-        const dateObj = new Date(dateString)
-        SetDate(dateObj.toISOString());
+        const dateObjString = new Date(dateString).toISOString();
+        const dateRequiredString = dateObjString.substring(0,dateObjString.indexOf("T"));
+        setDate(dateRequiredString);
     }
 
     const switchExpand = () => {
@@ -76,7 +78,7 @@ function Newsapp() {
     const clearInputs = () => {
         setSource("");
         setAuthor("");
-        SetDate(new Date().toISOString());
+        setDate("");
     }
 
   return (
@@ -90,7 +92,7 @@ function Newsapp() {
                 <div>
                 <input type='text' placeholder='Search News' onChange={handleInput}/>
                 <span onClick={switchExpand}>
-                    {expand? <ExpandMoreIcon className='icons'/> : <ExpandLessIcon className='icons' onClick = {clearInputs} />}
+                    {expand? <ExpandMoreIcon className='icons' onClick = {clearInputs}/> : <ExpandLessIcon className='icons' onClick = {clearInputs} />}
                 </span>
                 
                 </div>

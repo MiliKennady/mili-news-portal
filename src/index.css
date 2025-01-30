@@ -96,6 +96,7 @@ nav button:hover{
   color: #D1D7E0;
   font-size: 13px;
   border-radius: 2px;
+  margin-top: 15px;
 }
 .categoryBtn{
   display: flex;
@@ -155,6 +156,15 @@ nav button:hover{
   position: absolute;
   min-height: 33px;
   color: #564F6F;
+}
+
+.articleDetails{
+  display: flex;
+  font-size: 10px;
+}
+
+.articleDetails span{
+  margin: 5px;
 }
 
 @media only screen and (max-width: 450px) {
